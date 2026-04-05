@@ -3,7 +3,7 @@ import cors from 'cors'
 import pg from 'pg'
 const { Pool } = pg
 import dotenv from 'dotenv'
-dotenv.config({ path: '../.env' })
+//dotenv.config({ path: '../.env' })
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -21,7 +21,7 @@ pool.connect((err, client, release) => {
 
 const app = express()
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://nycrestaurantvisualizer.netlify.app/']
+    origin: ['http://localhost:5173', 'https://nycrestaurantvisualizer.netlify.app']
   }))
 
 app.get('/api/restaurants', async (req, res) => {
